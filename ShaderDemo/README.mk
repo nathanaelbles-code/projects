@@ -26,5 +26,6 @@ Voici deux shaders que j'ai codés pour tester des graphismes "cartoon" et des e
 - Stylisation visuelle et rendu cartoon/manga  
 
 ## Usage
-- Ouvrir dans Godot et assigner textureShader aux modèles (avec toutes les textures qui conviennent et une simple texture blanche pour les couches de couleur vides) et créer un quad collé à la caméra avec postProcess dessus
+- Ouvrir dans Godot et assigner textureShader aux modèles (avec toutes les textures qui conviennent et une simple texture blanche pour les couches de couleur vides)
+- Créer un quad collé à la caméra et lui attribuer postProcess
 - Les deux shaders sont indépendants
