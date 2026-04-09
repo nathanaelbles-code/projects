@@ -19,7 +19,7 @@ Voici deux shaders que j'ai codés pour tester des graphismes "cartoon" et des e
   - Répartition des couleurs basée sur une palette de 3 pixels sur 6, avec trois tons d’éclairage par couche  
   - Superposition des couches via des **textures-masks** dessinées
 
-## Compétences démontrées
+## Résumé
 - Programmation shaders GLSL-like dans Godot  
 - Techniques de cel-shading et post-processing  
 - Gestion de textures et effets animés  
