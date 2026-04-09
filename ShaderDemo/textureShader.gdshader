@@ -54,6 +54,7 @@ float rimLight(vec3 _normal, vec3 _view)
 	return rimLightPower;
 }
 
+// Renvoie la bonne couleur de la palette
 vec3 colorPicker(float _index, float _shade)
 {
     float u = floor(_index) + 0.5;
@@ -63,6 +64,7 @@ vec3 colorPicker(float _index, float _shade)
     return texture(colorPalette, vec2(u, v)).rgb;
 }
 
+// Met la bonne couleur en fonction de la lumière
 vec3 lightColoring(float _lightDot, vec2 _UV)
 {
 	float shade;
@@ -101,25 +103,26 @@ float hatchingMask(float _lightDot, vec2 _UV)
 	return mask;
 }
 
+// Pour donner un effet tremblant aux outlines
 void vertex()
 {
-    //vec3 worldPos = NODE_POSITION_WORLD + VERTEX;
-    //vec3 viewDir = normalize(CAMERA_POSITION_WORLD - worldPos);
-//
-    //float fresnelMask = fresnel(NORMAL, viewDir);
-	//
-	//if (fresnelMask > 0.90)
-	//{
-		//float roundedTime = round(TIME / frameTime) * frameTime;
-	//
-		//float heightX = pow(abs(cos(VERTEX.y * size + roundedTime * 10.0)), 0.5) * intensity
-		 //- pow(abs(cos(VERTEX.z * size * 0.7 + roundedTime * 5.0)), 0.5) * intensity * 1.3;
-		//float heightY = pow(abs(cos(VERTEX.x * size + roundedTime * 15.0)), 0.5) * intensity
-		 //- pow(abs(cos(VERTEX.z * size * 0.7 + roundedTime * 10.0)), 0.5) * intensity * 1.3;
-		//float heightZ = pow(abs(cos(VERTEX.y * size + roundedTime * 20.0)), 0.5) * intensity
-		 //- pow(abs(cos(VERTEX.x * size * 0.7 + roundedTime * 15.0)), 0.5) * intensity * 1.3;
-		//VERTEX += vec3(heightX, heightY, heightZ);
-	//}
+    vec3 worldPos = NODE_POSITION_WORLD + VERTEX;
+    vec3 viewDir = normalize(CAMERA_POSITION_WORLD - worldPos);
+
+    float fresnelMask = fresnel(NORMAL, viewDir);
+	
+	if (fresnelMask > 0.90)
+	{
+		float roundedTime = round(TIME / frameTime) * frameTime;
+	
+		float heightX = pow(abs(cos(VERTEX.y * size + roundedTime * 10.0)), 0.5) * intensity
+		 - pow(abs(cos(VERTEX.z * size * 0.7 + roundedTime * 5.0)), 0.5) * intensity * 1.3;
+		float heightY = pow(abs(cos(VERTEX.x * size + roundedTime * 15.0)), 0.5) * intensity
+		 - pow(abs(cos(VERTEX.z * size * 0.7 + roundedTime * 10.0)), 0.5) * intensity * 1.3;
+		float heightZ = pow(abs(cos(VERTEX.y * size + roundedTime * 20.0)), 0.5) * intensity
+		 - pow(abs(cos(VERTEX.x * size * 0.7 + roundedTime * 15.0)), 0.5) * intensity * 1.3;
+		VERTEX += vec3(heightX, heightY, heightZ);
+	}
 }
 
 void fragment() {
