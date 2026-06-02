@@ -16,3 +16,5 @@ Bien que le résultat soit déçent, il reste encore des instabilités et des co
 1. Installer SDL2 et s'assurer d'avoir OpenGL compris avec.
 2. On compile dans le terminal avec gcc main.c Vector4/vector4.c Tools/tools.c Equations/equations.c Particle/particle.c SpatialGrid/spatialGrid.c -o executable -lSDL2 -lGLEW -lGL -lm
 3. On exécute avec ./executable
+
+![Demo](Simulation_SPHC.mp4)
