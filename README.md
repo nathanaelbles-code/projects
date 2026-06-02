@@ -10,7 +10,7 @@ Passionné de programmation bas niveau, rendu graphique et simulation physique.
 
 ## Projets
 
-**[SPHC](./SPHC)** · `C` `OpenGL` `GLSL`
+**[Simulation de fluide SPH](./SPHC)** · `C` `OpenGL` `GLSL`
 Simulateur SPH (Smoothed Particle Hydrodynamics) from scratch en C avec rendu
 temps réel via SDL2/OpenGL. Pipeline de particules complet, grille spatiale,
 paramètres physiques configurables.
