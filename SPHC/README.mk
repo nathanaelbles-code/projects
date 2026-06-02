@@ -1,20 +1,24 @@
-# Simulateur de fluides SPH (Surface Particle Hydrodynamics) – Python
+# Simulateur de fluides SPH — C / OpenGL
 
-Voici la version en C de mon simulateur de fluides en surface libre SPH.
+Simulateur de fluides en surface libre implémenté from scratch en C,
+avec rendu temps réel via SDL2 et OpenGL.
 
-## Objectif
-Ce projet vise à simuler le comportement de fluides à l’aide de la méthode SPH. Il m’a permis de travailler sur :
-- La modélisation physique de fluides
-- La programmation orientée performance
-- Le débogage et l’optimisation des paramètres physiques (viscosité, pression…)
+## Fonctionnalités
+- Méthode SPH (Smoothed Particle Hydrodynamics) complète
+- Modélisation de fluides à surface libre
+- Interaction en temps réel avec forces externes
+- Grille spatiale pour l'optimisation de la recherche de voisinage
+- Paramètres physiques configurables (viscosité, pression, densité)
 
-## Contexte
-Suite à une réussite en python, je me suis lancé dans la finition de cette version en C plus performante.
-Bien que le résultat soit déçent, il reste encore des instabilités et des comportements étranges (observables sur les bords).
+## Limitations connues
+- Instabilités numériques observables sur les bords du domaine
+- Performances non optimales pour N > ~2000 particules
 
 ## Comment exécuter
-1. Installer SDL2 et s'assurer d'avoir OpenGL compris avec.
-2. On compile dans le terminal avec gcc main.c Vector4/vector4.c Tools/tools.c Equations/equations.c Particle/particle.c SpatialGrid/spatialGrid.c -o executable -lSDL2 -lGLEW -lGL -lm
-3. On exécute avec ./executable
-
-![Demo](Simulation_SPHC.mp4)
+1. Installer SDL2 et OpenGL/GLEW
+2. Compiler :
+gcc main.c Vector4/vector4.c Tools/tools.c \
+    Equations/equations.c Particle/particle.c \
+    SpatialGrid/spatialGrid.c \
+    -o executable -lSDL2 -lGLEW -lGL -lm
+3. Lancer : ./executable
