@@ -22,3 +22,5 @@ gcc main.c Vector4/vector4.c Tools/tools.c \
     SpatialGrid/spatialGrid.c \
     -o executable -lSDL2 -lGLEW -lGL -lm
 3. Lancer : ./executable
+
+![Demo_SPHC](Demo_SPHC.gif)
